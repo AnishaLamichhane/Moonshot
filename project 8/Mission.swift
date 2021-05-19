@@ -14,7 +14,7 @@ struct CrewRole: Codable {
 
 struct Mission: Codable, Identifiable {
     let id: Int
-    let lauchDate: Date?
+    let launchDate: Date?
     let crew: [CrewRole]
     let description: String
     
@@ -27,7 +27,7 @@ struct Mission: Codable, Identifiable {
     }
     
     var formattedLaunchDate: String {
-        if let launchDate = lauchDate {
+        if let launchDate = launchDate {
             let formatter = DateFormatter()
             formatter.dateStyle = .long
             return formatter.string(from: launchDate)

@@ -34,22 +34,25 @@ struct MissionView: View {
                     
                     ForEach(self.astronauts, id: \.role){
                         CrewMember in
-                        HStack {
-                            Image(CrewMember.astronaut.id)
-                                .resizable()
-                                .frame(width: 83, height: 60)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.primary, lineWidth: 1))
-                            
-                            VStack (alignment: .leading){
-                                Text(CrewMember.astronaut.name)
-                                    .font(.headline)
-                                Text(CrewMember.role)
-                                    .foregroundColor(.secondary)
+                        NavigationLink(destination: AstronautView(astronaut: CrewMember.astronaut)){
+                            HStack {
+                                Image(CrewMember.astronaut.id)
+                                    .resizable()
+                                    .frame(width: 83, height: 60)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.primary, lineWidth: 1))
+                                
+                                VStack (alignment: .leading){
+                                    Text(CrewMember.astronaut.name)
+                                        .font(.headline)
+                                    Text(CrewMember.role)
+                                        .foregroundColor(.secondary)
+                                }
+                                Spacer()
                             }
-                            Spacer()
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .buttonStyle(PlainButtonStyle())
                     }
                     
                     Spacer(minLength: 25)
