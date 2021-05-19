@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct MissionView: View {
     
     struct CrewMember {
@@ -36,7 +38,7 @@ struct MissionView: View {
                     
                     ForEach(self.astronauts, id: \.role){
                         CrewMember in
-                        NavigationLink(destination: AstronautView(astronaut: CrewMember.astronaut)){
+                        NavigationLink(destination: AstronautView(astronaut: CrewMember.astronaut)) {
                             HStack {
                                 Image(CrewMember.astronaut.id)
                                     .resizable()
